@@ -1,0 +1,113 @@
+  {% load static from static %}
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="UTF-8">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'estilos.css' %}">
+    </head>
+
+    <body style="background-color:#2D4A5A; "  >
+        <nav class="navbar navbar-light" style="background-color: #15BBA7;">
+           <img src="{% static 'img/logo.png' %}" width="450" height="150" alt="">
+           <img src="{% static 'img/chole.png' %}" width="450" height="150" alt="">
+        </nav>
+        <br>
+        <br>
+        <form  action="{% url 'home' %}">
+        <button type="submit" class="btn btn-primary" style="background-color: #15BBA7; margin-left: 30px;">Cerrar Sesión</button>
+        </form>
+       <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+        <a type="submit" href="{% url 'recervas' %}" style="font-size:40px; color: #ffffff; margin-left: 500px; float: left;"><u>Reservas</u></a>
+        <a type="submit" href="{% url 'crearServicio' %}" style="font-size:40px; color: #ffffff; margin-left: 150px; float: left "><u>Crear Servicio</u></a>
+        </div>
+            </div>
+        <br>
+        <br>
+        <br>
+        <form class="md-form" action="{% url 'crearServicio' %}">
+            <div class="file-field ">
+                <div class="z-depth-1-half mb-4 ">
+                   <img src="{% static 'img/ima.png' %}" style="margin-left:500px" width="450" height="150" class="img-fluid" alt="example placeholder">
+               </div>
+               <div class="d-flex " style="margin-left:500px">
+                   <div class="btn btn-mdb-color btn-rounded float-left">
+                       <input type="file" class="btn btn-secundary" style="background-color: #15BBA7; color:#ffffff" value="Choose file"/>   
+                   </div>
+              </div>
+            </div>
+            <br>
+            <div style="width : 500px; height : 50px; margin-left:450px">
+              <div class="input-group input-group-lg" >
+                 <div class="input-group-prepend" >
+                    <span style="background-color:#15BBA7; color:#ffffff " class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
+                 </div>
+                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese su nombre">
+               </div>
+            </div>
+            <br>
+            <div style="width : 500px; height : 50px; margin-left:450px">
+              <div class="input-group input-group-lg" >
+                 <div class="input-group-prepend" >
+                    <span style="background-color:#15BBA7; color:#ffffff " class="input-group-text" id="inputGroup-sizing-sm">Descrición</span>
+                 </div>
+                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese la descripcion del servicio">
+               </div>
+            </div>
+            <br>
+            <div style="width : 500px; height : 50px; margin-left:450px">
+              <div class="input-group input-group-lg" >
+                 <div class="input-group-prepend" >
+                    <span style="background-color:#15BBA7; color:#ffffff " class="input-group-text" id="inputGroup-sizing-sm">Contacto</span>
+                 </div>
+                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese una referencia de contacto">
+               </div>
+            </div>
+            <br>
+            <div style="width : 500px; height : 50px; margin-left:450px">
+              <div class="input-group input-group-lg" >
+                 <div class="input-group-prepend" >
+                    <span style="background-color:#15BBA7; color:#ffffff " class="input-group-text" id="inputGroup-sizing-sm">Zona</span>
+                 </div>
+                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese la zona donde se encuentra el servicio">
+               </div>
+            </div>
+            <br>
+            <div style="width : 500px; height : 50px; margin-left:450px">
+              <div class="input-group input-group-lg" >
+                 <div class="input-group-prepend" >
+                    <span style="background-color:#15BBA7; color:#ffffff " class="input-group-text" id="inputGroup-sizing-sm">Precio</span>
+                 </div>
+                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese el precio del servicio">
+               </div>
+            </div>
+            <br>
+            <div style="width : 500px; height : 50px; margin-left:450px">
+              <div class="input-group input-group-lg" >
+                 <div class="input-group-prepend" >
+                     <button class="btn btn-outline-secondary" style="background-color:#15BBA7; color:#ffffff " type="button">Tipo</button>
+                 </div>
+                 <select class="custom-select" id="inputGroupSelect03">
+                     <option selected>Seleccionar tipo</option>
+                     <option value="1">Cholet</option>
+                     <option value="2">Música</option>
+                     <option value="3">Bebidas</option>
+                 </select>
+               </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary" style="background-color: #15BBA7; margin-left: 650px;">Crear servicio</button>
+            <br>
+            <br>
+        </form>
+
+         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    </body>
+    </html>
