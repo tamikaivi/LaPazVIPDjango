@@ -18,8 +18,8 @@ def homeSinInicio(request):
 def inicioSesion(request):
     return render(request, 'iniciar_sesion.html')
 
-def recervas(request):
-    return render(request, 'recervasDu.html')
+def reservas(request):
+    return render(request, 'reservasDu.html')
 
 def registrarMenu(request):
     return render(request, 'registrar.html')

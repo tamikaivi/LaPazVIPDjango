@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from lapazvip.views import home, crearServicio, detalle, homeSinInicio, inicioSesion, recervas, registrarMenu, registrarCliente, registrarDuenio
+from lapazvip.views import home, crearServicio, detalle, homeSinInicio, inicioSesion, reservas, registrarMenu, registrarCliente, registrarDuenio
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
@@ -26,7 +26,7 @@ urlpatterns = [
     path('detalle', detalle, name='detalle'),
     path('homeSinInicio', homeSinInicio, name='homeSin'),
     path('inicioSesion', inicioSesion, name='inicioSesion'),
-    path('recervas', recervas, name='recervas'),
+    path('reservas', reservas, name='reservas'),
     path('registrarMenu', registrarMenu, name='registrarMenu'),
     path('registroCliente', registrarCliente, name='registrarCliente'),
     path('registroDuenio', registrarDuenio, name='registrarDuenio'),
