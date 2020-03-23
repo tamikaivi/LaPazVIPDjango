@@ -4,73 +4,28 @@ from django.shortcuts import render
 
 
 def home(request):
-    documento_exter=open("lapazvip/plantillas/home.html")
-    plo=Template(documento_exter.read())
-    documento_exter.close()
-    cont=Context()
-    doc=plo.render(cont)
-    return HttpResponse(doc)
+    return render(request, 'home.html')
 
 def crearServicio(request):
-    documento_exter=open("lapazvip/plantillas/crearServicioDu.html")
-    plo=Template(documento_exter.read())
-    documento_exter.close()
-    cont=Context()
-    doc=plo.render(cont)
-    return HttpResponse(doc)
+    return render(request, 'crearServicioDu.html')
 
 def detalle(request):
-    documento_exter=open("lapazvip/plantillas/detalle.html")
-    plo=Template(documento_exter.read())
-    documento_exter.close()
-    cont=Context()
-    doc=plo.render(cont)
-    return HttpResponse(doc)
+    return render(request, 'detalle.html')
 
 def homeSinInicio(request):
-    documento_exter=open("lapazvip/plantillas/home_sin_inicio.html")
-    plo=Template(documento_exter.read())
-    documento_exter.close()
-    cont=Context()
-    doc=plo.render(cont)
-    return HttpResponse(doc)
+    return render(request, 'home_sin_inicio.html')
 
 def inicioSesion(request):
-    documento_exter=open("lapazvip/plantillas/iniciar_sesion.html")
-    plo=Template(documento_exter.read())
-    documento_exter.close()
-    cont=Context()
-    doc=plo.render(cont)
-    return HttpResponse(doc)
+    return render(request, 'iniciar_sesion.html')
 
 def recervas(request):
-    documento_exter=open("lapazvip/plantillas/recervasDu.html")
-    plo=Template(documento_exter.read())
-    documento_exter.close()
-    cont=Context()
-    doc=plo.render(cont)
-    return HttpResponse(doc)
+    return render(request, 'recervasDu.html')
 
 def registrarMenu(request):
-    documento_exter=open("lapazvip/plantillas/registrar.html")
-    plo=Template(documento_exter.read())
-    documento_exter.close()
-    cont=Context()
-    doc=plo.render(cont)
-    return HttpResponse(doc)
+    return render(request, 'registrar.html')
 
 def registrarCliente(request):
-    documento_exter=open("lapazvip/plantillas/registroClien.html")
-    plo=Template(documento_exter.read())
-    documento_exter.close()
-    cont=Context()
-    doc=plo.render(cont)
-    return HttpResponse(doc)
+    return render(request, 'registroClien.html')
 
 def registrarDuenio(request):
-    documento_exter=open("lapazvip/plantillas/registroDu.html")
-    plo=Template(documento_exter.read())
-    documento_exter.close()
-    cont=Context()
-    doc=plo.render(cont)
-    return HttpResponse(doc)
+    return render(request, 'registroDu.html')
