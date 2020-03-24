@@ -35,22 +35,23 @@
     <br>
      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
-                  <a type="submit" href="{% url 'home' %}" style="font-size:40px; color: #ffffff; margin-left: 40px; margin-right: 40px;"><u>Locales</u></a>
-                  <a type="submit" href="{% url 'home' %}" style="font-size:40px; color: #ffffff; margin-left: 40px; margin-right: 40px; "><u>Música</u></a>
-                  <a type="submit" href="{% url 'home' %}" style="font-size:40px; color: #ffffff;  margin-left: 40px; margin-right: 40px;"><u>Bebidas</u></a>
+                  <a type="submit" href="{% url 'locales' %}" style="font-size:40px; color: #ffffff; margin-left: 40px; margin-right: 40px;"><u>Locales</u></a>
+                  <a type="submit" href="{% url 'musica' %}" style="font-size:40px; color: #ffffff; margin-left: 40px; margin-right: 40px; "><u>Música</u></a>
+                  <a type="submit" href="{% url 'bebidas' %}" style="font-size:40px; color: #ffffff;  margin-left: 40px; margin-right: 40px;"><u>Bebidas</u></a>
               </div>
     </div>
         <br>
     <br>
     <br>
-    <div class="list-group " style="background-color: #ffffff; width : 700px; height : 700px; margin-left: 400px; ">
-        <a href="#" style="background-color: #15BBA7;" class="list-group-item list-group-item-action flex-column align-items-start active">
+    <div class="list-group " style=" width : 700px; height : 500px; margin-left: 400px; ">
+        <a href="#" style="background-color: #15BBA7; margin: auto" class="list-group-item list-group-item-action flex-column align-items-start active">
             <div class="d-flex w-100 justify-content-between">
                 <div>
-                    <h4 class="mb-1">Banda Internacional Poopó</h4>
-                    <h7>Banda de Música</h7><br>
-                    <h7>77377966</h7><br>
-                    <h7>Bs. 2008</h7>
+                     <img class="img-fluid" src="{{ servicio.imagen.url }}" alt="">
+                    <h4 class="mb-1">{{ servicio.nombre}}</h4>
+                    <h7>{{ servicio.descripcion}}</h7><br>
+                    <h7>{{ servicio.contacto}}</h7><br>
+                    <h7>Bs. {{ servicio.precio}}</h7>
                 </div>
 
             </div>
@@ -58,7 +59,7 @@
         <br>
         <br>
         <br>
-        
+
     </div>
     <br>
     <div class="d-flex w-100 justify-content-between">
