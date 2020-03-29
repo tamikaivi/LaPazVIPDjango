@@ -19,8 +19,10 @@
     <br>
     <br>
     <div>
-        <input type="date" name="inicio" style=" float: left; background-color: #15BBA7; margin-left: 200px;" id="inicio" value="" placeholder="Ingresar Fecha"></td>
-        <form action="{% url 'home' %}">
+        <form action="{% url 'home' %}" method="GET">
+            {% csrf_token %}
+             <input id="start_date" style=" float: left; background-color: #15BBA7; margin-left: 200px;" type="date" name="start_date" placeholder="Ingresar Fecha" value="{{start_date|date:"d/m/Y"}}">
+
         <button type="submit" class="btn btn-primary" style=" float: left; background-color: #15BBA7;">Buscar</button>
         </form>
          <form action="{% url 'inicioSesion' %}">

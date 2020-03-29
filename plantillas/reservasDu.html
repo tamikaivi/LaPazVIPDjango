@@ -24,7 +24,8 @@
         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
         <a type="submit" href="{% url 'reservas' %}" style="font-size:40px; color: #ffffff; margin-left: 70px; margin-right: 70px; float: left;"><u>Reservas</u></a>
-        <a type="submit" href="{% url 'crearServicio' %}" style="font-size:40px; color: #ffffff; margin-left: 70px; margin-right: 70px; float: left "><u>Crear Servicio</u></a>
+
+        <a type="submit" href="{% url 'crearServicio' %}" method="post" style="font-size:40px; color: #ffffff; margin-left: 70px; margin-right: 70px; float: left "><u>Crear Servicio</u></a>
         </div>
             </div>
         <br>
@@ -32,12 +33,15 @@
         <br>
         
     <div class="list-group align-content-center" style="background-color: #2D4A5A; width : 700px; height : 700px; margin-left: 400px; ">
+       {% for reserva in reservas %}
         <a href="#" style="background-color: #15BBA7;" class="list-group-item list-group-item-action flex-column align-items-start active">
             <div class="d-flex w-100 justify-content-between">
                <div>
-                   <h4 class="mb-1">Cholet Iron man </h4>
-                   <h7>Reservado por: Sergio Torrico</h7><br>
-                   <h7>Telefono: 75278393</h7>
+                   <h4 class="mb-1">{{ reserva.servicio.nombre  }}</h4>
+                   <h7>Reservado por: {{  reserva.cliente.nombre }}</h7><br>
+                   <h7>Telefono del cliente: {{ reserva.cliente.telefono }}</h7>
+                   <br>
+                   <h7>Reservado para la fecha: {{ reserva.fecha }}</h7>
                </div>
              <div style="margin-top: 35px;" >
                <form style="float: left">
@@ -47,99 +51,9 @@
                 <img src="{% static 'img/not.png' %}" width="40" height="40" style="margin-bottom: 35px" alt="">
                 </form>
                </div>
-               
-               
             </div>
         </a>
-        <a href="#" style="background-color: #ffffff;" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-               <div>
-                   <h4 class="mb-1">Banda Intercontinental Poopó</h4>
-                   <h7>Reservado por: Pepito Perez</h7><br>
-                   <h7>Telefono: 75278393</h7>
-               </div>
-              <div style="margin-top: 35px;" >
-               <form style="float: left">
-               <input type="radio" style="background-color: #2D4A5A; width : 50px; height : 50px " name="test" value="big">
-               <img src="{% static 'img/check.png' %}" width="40" height="40" style="margin-bottom: 35px" alt="">
-                <input type="radio" style="background-color: #2D4A5A; width : 50px; height : 50px" name="test" value="big">
-                <img src="{% static 'img/not.png' %}" width="40" height="40" style="margin-bottom: 35px" alt="">
-                </form>
-               </div>
-               
-               
-            </div>
-        </a>
-        <a href="#" style="background-color: #15BBA7;" class="list-group-item list-group-item-action flex-column align-items-start active">
-            <div class="d-flex w-100 justify-content-between">
-               <div>
-                   <h4 class="mb-1">Cholet Numero 3</h4>
-                   <h7>Reservado por: Nombre 5 Apellido 7</h7><br>
-                   <h7>Telefono: 75278393</h7>
-               </div>
-              <div style="margin-top: 35px;" >
-               <form style="float: left">
-               <input type="radio" style="background-color: #2D4A5A; width : 50px; height : 50px " name="test" value="big">
-               <img src="{% static 'img/check.png' %}" width="40" height="40" style="margin-bottom: 35px" alt="">
-                <input type="radio" style="background-color: #2D4A5A; width : 50px; height : 50px" name="test" value="big">
-                <img src="{% static 'img/not.png' %}" width="40" height="40" style="margin-bottom: 35px" alt="">
-                </form>
-               </div>
-               
-            </div>
-        </a>
-        <a href="#" style="background-color: #ffffff;" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-               <div>
-                   <h4 class="mb-1">Amplificacion</h4>
-                   <h7>Reservado por: Nombre 3 Apellido 4</h7><br>
-                   <h7>Telefono: 75278393</h7>
-               </div>
-              <div style="margin-top: 35px;" >
-               <form style="float: left">
-               <input type="radio" style="background-color: #2D4A5A; width : 50px; height : 50px " name="test" value="big">
-               <img src="{% static 'img/check.png' %}" width="40" height="40" style="margin-bottom: 35px" alt="">
-                <input type="radio" style="background-color: #2D4A5A; width : 50px; height : 50px" name="test" value="big">
-                <img src="{% static 'img/not.png' %}" width="40" height="40" style="margin-bottom: 35px" alt="">
-                </form>
-               </div>
-            </div>
-        </a>
-        <a href="#" style="background-color: #15BBA7;" class="list-group-item list-group-item-action flex-column align-items-start active">
-            <div class="d-flex w-100 justify-content-between">
-               <div>
-                   <h4 class="mb-1"> El Imperio del Rey </h4>
-                   <h7>Reservado por: Nombre Apellido 2</h7><br>
-                   <h7>Telefono: 75278393</h7>
-               </div>
-              <div style="margin-top: 35px;" >
-               <form style="float: left">
-               <input type="radio" style="background-color: #2D4A5A; width : 50px; height : 50px " name="test" value="big">
-               <img src="{% static 'img/check.png' %}" width="40" height="40" style="margin-bottom: 35px" alt="">
-                <input type="radio" style="background-color: #2D4A5A; width : 50px; height : 50px" name="test" value="big">
-                <img src="{% static 'img/not.png' %}" width="40" height="40" style="margin-bottom: 35px" alt="">
-                </form>
-               </div>
-               
-            </div>
-        </a>
-        <a href="#" style="background-color: #ffffff;" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-               <div>
-                   <h4 class="mb-1">Banda Proyeccion Murillo</h4>
-                   <h7>Reservado por: Sergio Ramirez</h7><br>
-                   <h7>Telefono: 75278393</h7>
-               </div>
-              <div style="margin-top: 35px;" >
-               <form style="float: left">
-               <input type="radio" style="background-color: #2D4A5A; width : 50px; height : 50px " name="test" value="big">
-               <img src="{% static 'img/check.png' %}" width="40" height="40" style="margin-bottom: 35px" alt="">
-                <input type="radio" style="background-color: #2D4A5A; width : 50px; height : 50px" name="test" value="big">
-                <img src="{% static 'img/not.png' %}" width="40" height="40" style="margin-bottom: 35px" alt="">
-                </form>
-               </div>
-            </div>
-        </a>
+        {% endfor %}
     </div>
         
 

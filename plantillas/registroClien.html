@@ -43,60 +43,32 @@
         <br>
     <br>
     <br>
-        <form class="md-form" action="{% url 'homeSin' %}">
+        <form class="md-form" action="{% url 'registrarCliente' %}" method="POST">
             <div class="file-field ">
                 <div class="z-depth-1-half mb-4 ">
                    <img src="{% static 'img/add.png' %}" style="margin-left:500px" width="450" height="150" class="img-fluid" alt="example placeholder">
                </div>
             </div>
             <br>
-            <div style="width : 500px; height : 50px; margin-left:450px">
-              <div class="input-group input-group-lg" >
-                 <div class="input-group-prepend" >
-                    <span style="background-color:#15BBA7; color:#ffffff " class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
-                 </div>
-                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese su nombre">
-               </div>
-            </div>
-            <br>
-            <div style="width : 500px; height : 50px; margin-left:450px">
-              <div class="input-group input-group-lg" >
-                 <div class="input-group-prepend" >
-                    <span style="background-color:#15BBA7; color:#ffffff " class="input-group-text" id="inputGroup-sizing-sm">Correo</span>
-                 </div>
-                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese su correo">
-               </div>
-            </div>
-            <br>
-            <div style="width : 500px; height : 50px; margin-left:450px">
-              <div class="input-group input-group-lg" >
-                 <div class="input-group-prepend" >
-                    <span style="background-color:#15BBA7; color:#ffffff " class="input-group-text" id="inputGroup-sizing-sm">Contraseña</span>
-                 </div>
-                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese una contraseña">
-               </div>
-            </div>
-            <br>
-            <div style="width : 500px; height : 50px; margin-left:450px">
-              <div class="input-group input-group-lg" >
-                 <div class="input-group-prepend" >
-                    <span style="background-color:#15BBA7; color:#ffffff " class="input-group-text" id="inputGroup-sizing-sm">Telefono</span>
-                 </div>
-                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese su telefono">
-               </div>
-            </div>
-            <br>
-            <div style="width : 500px; height : 50px; margin-left:450px">
-              <div class="input-group input-group-lg" >
-                 <div class="input-group-prepend" >
-                    <span style="background-color:#15BBA7; color:#ffffff " class="input-group-text" id="inputGroup-sizing-sm">Ciudad</span>
-                 </div>
-                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese su ciudad">
-               </div>
-            </div>
+            {% csrf_token %}
+            {{ formset.management_form }}
+               {% for form in formset %}
+                   {{ form.id }}
+                       <div style="width : 500px; height : 50px; margin-left:450px">
+                           <div class="input-group input-group-lg" >
+                              <div class="input-group-prepend" >
+                                <span style="background-color:#15BBA7; color:#ffffff " class="input-group-text" id="inputGroup-sizing-sm">{{ form.label_tag}} </span>
+                                  <br>
+                             </div>
+                               {{ form }}
+                             </div>
+                       </div>
+                   <br>
+               {% endfor %}
+
             <br>
             <br>
-            <button type="submit" class="btn btn-primary" style="background-color: #15BBA7; margin-left: 650px;">Crear servicio</button>
+            <input type="submit" class="btn btn-primary" style="background-color: #15BBA7; margin-left: 650px;" value="Registrar Cliente">
             <br>
             <br>
         </form>

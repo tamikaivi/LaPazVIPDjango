@@ -16,19 +16,19 @@ class Duenio(models.Model):
     correo=models.EmailField()
     password=models.CharField(max_length=200)
     telefono=models.IntegerField()
-    direccion=models.TextField()
+    direccion=models.CharField(max_length=500)
 
     def __str__(self):
         return self.nombre
 class Servicio(models.Model):
     nombre=models.CharField(max_length=500)
     imagen=models.ImageField()
-    descripcion=models.TextField()
+    descripcion=models.CharField(max_length=500)
     contacto=models.IntegerField()
-    zona=models.TextField()
-    precio=models.IntegerField()
+    zona=models.CharField(max_length=500)
+    precio=models.FloatField()
     tipo=models.CharField(max_length=50)
-    duenio=models.ForeignKey(Duenio, default=None, on_delete=models.CASCADE)
+    duenio=models.ForeignKey(Duenio  , default=None, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nombre
@@ -42,4 +42,4 @@ class Reserva(models.Model):
     servicio=models.ForeignKey(Servicio,default=None,on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.fecha)
+        return str(self.servicio)

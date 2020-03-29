@@ -29,78 +29,28 @@
         <br>
         <br>
         <br>
-        <form class="md-form" action="{% url 'crearServicio' %}">
-            <div class="file-field ">
+
                 <div class="z-depth-1-half mb-4 ">
                    <img src="{% static 'img/ima.png' %}" style="margin-left:500px" width="450" height="150" class="img-fluid" alt="example placeholder">
                </div>
-               <div class="d-flex " style="margin-left:500px">
-                   <div class="btn btn-mdb-color btn-rounded float-left">
-                       <input type="file" class="btn btn-secundary" style="background-color: #15BBA7; color:#ffffff" value="Choose file"/>   
-                   </div>
-              </div>
-            </div>
             <br>
-            <div style="width : 500px; height : 50px; margin-left:450px">
-              <div class="input-group input-group-lg" >
-                 <div class="input-group-prepend" >
-                    <span style="background-color:#15BBA7; color:#ffffff " class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
-                 </div>
-                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese su nombre">
-               </div>
-            </div>
+           <form class="md-form" action="{% url 'crearServicio' %}" method="post" >
+           {% csrf_token %}
+            {{ formset.management_form }}
+               {% for form in formset %}
+                       <div style="width : 500px; height : 50px; margin-left:450px">
+                           <div class="input-group input-group-lg" >
+                              <div class="input-group-prepend" >
+                                <span style="background-color:#15BBA7; color:#ffffff " class="input-group-text" id="inputGroup-sizing-sm">{{ form.label_tag}} </span>
+                              </div>
+                                {{ form }}
+                           </div>
+                       </div>
+                    <br>
+               {% endfor %}
             <br>
-            <div style="width : 500px; height : 50px; margin-left:450px">
-              <div class="input-group input-group-lg" >
-                 <div class="input-group-prepend" >
-                    <span style="background-color:#15BBA7; color:#ffffff " class="input-group-text" id="inputGroup-sizing-sm">Descrición</span>
-                 </div>
-                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese la descripcion del servicio">
-               </div>
-            </div>
             <br>
-            <div style="width : 500px; height : 50px; margin-left:450px">
-              <div class="input-group input-group-lg" >
-                 <div class="input-group-prepend" >
-                    <span style="background-color:#15BBA7; color:#ffffff " class="input-group-text" id="inputGroup-sizing-sm">Contacto</span>
-                 </div>
-                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese una referencia de contacto">
-               </div>
-            </div>
-            <br>
-            <div style="width : 500px; height : 50px; margin-left:450px">
-              <div class="input-group input-group-lg" >
-                 <div class="input-group-prepend" >
-                    <span style="background-color:#15BBA7; color:#ffffff " class="input-group-text" id="inputGroup-sizing-sm">Zona</span>
-                 </div>
-                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese la zona donde se encuentra el servicio">
-               </div>
-            </div>
-            <br>
-            <div style="width : 500px; height : 50px; margin-left:450px">
-              <div class="input-group input-group-lg" >
-                 <div class="input-group-prepend" >
-                    <span style="background-color:#15BBA7; color:#ffffff " class="input-group-text" id="inputGroup-sizing-sm">Precio</span>
-                 </div>
-                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese el precio del servicio">
-               </div>
-            </div>
-            <br>
-            <div style="width : 500px; height : 50px; margin-left:450px">
-              <div class="input-group input-group-lg" >
-                 <div class="input-group-prepend" >
-                     <button class="btn btn-outline-secondary" style="background-color:#15BBA7; color:#ffffff " type="button">Tipo</button>
-                 </div>
-                 <select class="custom-select" id="inputGroupSelect03">
-                     <option selected>Seleccionar tipo</option>
-                     <option value="1">Cholet</option>
-                     <option value="2">Música</option>
-                     <option value="3">Bebidas</option>
-                 </select>
-               </div>
-            </div>
-            <br>
-            <button type="submit" class="btn btn-primary" style="background-color: #15BBA7; margin-left: 650px;">Crear servicio</button>
+            <button type="submit" class="btn btn-primary" style="background-color: #15BBA7; margin-left: 650px;">Registrar Servicio</button>
             <br>
             <br>
         </form>
